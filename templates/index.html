@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='index.css')}}">
+    {% if context['title'] %}
+        <title>{{context.title}}</title>
+    {% else %}
+        <title>Student Form</title>
+    {% endif %}
+</head>
+<body>
+    <div class="container">
+        <!-- message alert -->
+            {% with messages=get_flashed_messages(with_categories=True) %}
+             {% if messages %}
+                {%for category,message in messages%}
+                <div class="message-alert alert-{{category}}">
+                    <p>{{message}}</p>
+                    <p class="closelogo" id="closelogo">&#10006;</p>    
+                </div>
+                {% endfor %}
+             {% endif %}
+             {%endwith %}
+        
+        <!-- form container -->
+        <div class="forms">
+            <div class="forms-container">
+                <form action="/submit" class="fm-pg" method="POST">
+                    <h3 class='fm-header'>Student Form</h3>
+                    <div className='fm-form'>
+                        <div>
+                            <label for="name">Name:</label>
+                            <input type="text" name="name" id="name" required>
+                        </div>
+                        <div>
+                            <label for="college">College:</label>
+                            <input type="text" name="college" id="college" required>
+                        </div>
+                    </div>
+                    <div style="display: flex;justify-content: center;">
+                        <button type="submit">Submit</button>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+        <!-- listing the data  -->
+        <div class="list-container">
+            <h1>Student Data</h1>
+            {% if context['students'] %}
+                
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>College</th>
+                    </tr>
+                    {% for student in context['students'] %}
+                    <tr>
+                        <td>{{ student.name }}</td>
+                        <td>{{ student.college }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            {% else %}
+                <h3>No data found</h3>
+            {% endif %}
+        </div>
+    </div>
+    <script>
+        // Messages close
+
+        const closelogo=document.querySelector(".closelogo");
+        const message=document.querySelector(".message-alert");
+
+            if(closelogo){
+                closelogo.addEventListener("click",function msgclose(){
+                message.style.display="none";
+                console.log("message close");
+            });
+            }
+
+        var a=setTimeout(function msgclose(){
+            if(message){
+                message.style.display="none";
+                message.style.transition=`0.5s`;
+            }
+            
+            clearTimeout(a);
+        },4000);
+
+
+    </script>
+</body>
+</html>

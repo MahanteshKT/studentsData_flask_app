@@ -1,0 +1,248 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+
+::-webkit-scrollbar{
+    width: 10px;
+    
+}
+::-webkit-scrollbar-track{
+    background: rgba(248, 226, 226, 0.6);
+    border-radius: 5px;
+  
+}
+::-webkit-scrollbar-thumb{
+    background: linear-gradient(transparent,#30ff00);
+    border-radius:6px;
+  
+}
+::-webkit-scrollbar-thumb:hover{
+    background: linear-gradient(transparent,#00c6ff);
+}
+
+.message-alert{
+    width: 90%;
+    margin: 10px auto;
+    background-color: antiquewhite;
+    border: 1px solid black;
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 5px;
+    font-size: 17px;
+    color: black;
+}
+
+.closelogo{
+    font-weight:800;
+    cursor: pointer;
+}
+
+.closelogo:hover{
+    color: rgb(3, 3, 3);
+}
+
+.message-alert.alert-success{
+    color: black;
+    background-color: #61f93f;
+    border: 1px solid #61fb3e;
+}
+.message-alert.alert-error{
+    background-color: antiquewhite;
+    color: red;
+    border: 1px solid rgb(253, 118, 118);
+    
+}
+
+
+
+body{
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+    background-color: beige;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+}
+
+.forms{
+    position: relative;
+    min-width: 300px;
+    max-width: 600px;
+    padding: 40px 20px;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.forms-container{
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+    display: flex;
+    width: 90%;
+    flex-direction: column;
+    background-image:linear-gradient(to right,rgba(38, 38, 38, 0.7),rgba(34, 34, 34, 0.5)) ;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 30px;
+    margin-bottom: 15px;
+}
+
+.forms-container .fm-header{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: capitalize;
+    margin-bottom:10px ;
+    color: rgb(0, 255, 242);
+}
+
+
+.forms-container  label{
+    color:black;
+    font-size: 17px;
+    font-weight: 600;
+  }
+  
+.forms-container input{
+    border: 1px solid rgb(43, 42, 42);
+    outline: none;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 600;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: 0.5s;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  
+.forms-container input:hover{
+    transition: 0.5s;
+    border: 1px solid rgba(4, 16, 28, 0.9);
+    box-shadow: 0 0 20px rgba(0, 132, 255, 0.9);
+}
+
+.forms-container li{
+    display:flex;
+    color: white;
+    font-size: 10px;
+    flex-direction: column;
+}
+
+.forms-container .helptext{
+    display: flex;
+    font-size: 12px;
+    color:rgb(218, 220, 220)
+}
+
+button{
+    color: aquamarine;
+    background-color: rgb(0, 0, 0);
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+button:hover{
+    transition: 0.2s;
+    color: black;
+    cursor: pointer;
+    border: 1px solid cyan;
+    background-color: cyan;
+    
+}
+
+
+.list-container{
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+    display: flex;
+    width: 90%;
+    flex-direction: column;
+    align-items: center;
+    background-image:linear-gradient(to right,rgba(38, 38, 38, 0.7),rgba(34, 34, 34, 0.5)) ;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 20px;
+    margin-bottom: 15px;    
+    overflow: scroll;
+}
+
+.list-container h3{
+    font-size:19px ;
+}
+
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 5px 10px;
+    text-align: center;
+    
+}
+
+tr{
+    color: white;
+}
+
+th, td {
+    text-align:left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    color: black;
+
+}
+
+
+
+
+@media screen and (min-width:700px) {
+    .forms{
+        min-width: 80%;
+    }
+    .forms-container{
+        width: 70%;
+        padding: 40px;
+    }
+    button{
+        width: 40%;
+        align-self: center;
+        justify-self: center;
+    }
+
+}
+
